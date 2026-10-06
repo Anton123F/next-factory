@@ -20,19 +20,7 @@ starting small and expanding modularly.
 
 ## Monorepo Structure
 
-```
-next-factory/
-├── apps/
-│   ├── web/          # Next.js 14 frontend
-│   └── api/          # FastAPI backend
-├── services/
-│   └── worker/       # Celery worker (video processing)
-├── notes/            # Architectural decisions, ideas, roadmap
-└── docker-compose.yml
-```
-
-Never collapse these into a single app. The boundary between `apps/api` and `services/worker`
-must stay clean — the worker only consumes jobs from the queue, never handles HTTP.
+@notes/structure.md
 
 ## Tech Stack
 
@@ -52,23 +40,6 @@ must stay clean — the worker only consumes jobs from the queue, never handles 
 
 All external services (storage, queue, DB) sit behind an interface — swap via config, never code.
 Details and code structure: `apps/api/storage/CLAUDE.md` (loaded automatically when working in that folder).
-
-## Video Processing Pipeline
-
-Upload flow must always be asynchronous:
-
-```
-Client → POST /videos/upload → save raw file to MinIO → enqueue Celery job → return 202
-                                                                ↓
-                                              worker: FFmpeg transcode → HLS chunks
-                                                                ↓
-                                              store chunks to MinIO → update DB status → notify
-```
-
-Videos have a `status` field: `pending → processing → ready | failed`.
-The frontend polls or uses WebSocket to reflect status. Never serve a video that is not `ready`.
-
-HLS is mandatory for streaming — no plain MP4 delivery. Output: `playlist.m3u8` + `.ts` segment files.
 
 ## Auth Rules
 
