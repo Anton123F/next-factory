@@ -1,0 +1,182 @@
+[
+  {
+    "path": "apps/api/api/__init__.py",
+    "type": "python",
+    "symbols": []
+  },
+  {
+    "path": "apps/api/api/v1/__init__.py",
+    "type": "python",
+    "symbols": []
+  },
+  {
+    "path": "apps/api/api/v1/router.py",
+    "type": "python",
+    "symbols": [
+      "@get def ping",
+      "@get def hello"
+    ]
+  },
+  {
+    "path": "apps/api/core/__init__.py",
+    "type": "python",
+    "symbols": []
+  },
+  {
+    "path": "apps/api/core/config.py",
+    "type": "python",
+    "symbols": [
+      "class Settings"
+    ]
+  },
+  {
+    "path": "apps/api/core/database.py",
+    "type": "python",
+    "symbols": [
+      "class Base",
+      "def get_db"
+    ]
+  },
+  {
+    "path": "apps/api/Dockerfile",
+    "type": "unknown",
+    "symbols": []
+  },
+  {
+    "path": "apps/api/main.py",
+    "type": "python",
+    "symbols": [
+      "@get def health"
+    ]
+  },
+  {
+    "path": "apps/api/models/__init__.py",
+    "type": "python",
+    "symbols": []
+  },
+  {
+    "path": "apps/api/pyproject.toml",
+    "type": "toml",
+    "symbols": []
+  },
+  {
+    "path": "apps/api/services/__init__.py",
+    "type": "python",
+    "symbols": []
+  },
+  {
+    "path": "apps/api/storage/CLAUDE.md",
+    "type": "md",
+    "symbols": []
+  },
+  {
+    "path": "apps/api/uv.lock",
+    "type": "lock",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/.gitignore",
+    "type": "unknown",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/AGENTS.md",
+    "type": "md",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/app/favicon.ico",
+    "type": "ico",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/app/globals.css",
+    "type": "css",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/app/layout.tsx",
+    "type": "typescript",
+    "symbols": [
+      "export metadata",
+      "export RootLayout"
+    ]
+  },
+  {
+    "path": "apps/web/app/page.tsx",
+    "type": "typescript",
+    "symbols": [
+      "export Home"
+    ]
+  },
+  {
+    "path": "apps/web/CLAUDE.md",
+    "type": "md",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/eslint.config.mjs",
+    "type": "mjs",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/next-env.d.ts",
+    "type": "typescript",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/next.config.ts",
+    "type": "typescript",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/package-lock.json",
+    "type": "json",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/package.json",
+    "type": "json",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/postcss.config.mjs",
+    "type": "mjs",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/public/file.svg",
+    "type": "svg",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/public/globe.svg",
+    "type": "svg",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/public/next.svg",
+    "type": "svg",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/public/vercel.svg",
+    "type": "svg",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/public/window.svg",
+    "type": "svg",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/README.md",
+    "type": "md",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/tsconfig.json",
+    "type": "json",
+    "symbols": []
+  }
+]
