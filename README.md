@@ -51,6 +51,7 @@ docker compose up db redis minio
 cd apps/api
 uv sync
 uv run uvicorn main:app --reload --port 8000
+
 ```
 
 **3. Start the frontend**
