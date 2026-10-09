@@ -4,3 +4,5 @@ description: Reads the designer's requirements.md from a given run folder and pr
 ---
 
 Read `.claude/shared/architect-core.md` and follow its instructions exactly.
+
+Read `.claude/shared/agent-output-discipline.md` and apply it to all output you produce.

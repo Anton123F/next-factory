@@ -42,7 +42,8 @@ Run only infrastructure in Docker; run the API and frontend natively for hot-rel
 **1. Start infrastructure**
 
 ```bash
-docker compose up db redis minio
+podman machine start
+podman-compose up db redis minio
 ```
 
 **2. Start the API**
@@ -71,10 +72,26 @@ uv run celery -A worker worker --loglevel=info
 
 ---
 
+``` bash
+update table fields:
+cd apps/api
+uv run alembic upgrade head
+
+```
+
+connect to podman
+``` bash
+podman exec -it next-factory_db_1 psql -U postgres -d nextfactory
+  # list all tables
+  \dt
+  # see columns of a specific table
+  \d users
+```
+
 ## Useful Commands
 
 ```bash
-docker compose logs -f api       # tail API logs
-docker compose restart worker    # restart Celery worker only
-docker compose down -v           # stop and wipe all volumes (destructive)
+podman-compose logs -f api       # tail API logs
+podman-compose restart worker    # restart Celery worker only
+podman-compose down -v           # stop and wipe all volumes (destructive)
 ```

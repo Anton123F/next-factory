@@ -6,6 +6,7 @@ const SECRET = new TextEncoder().encode(process.env.JWT_SECRET ?? "change-me-in-
 
 export async function proxy(request: NextRequest) {
   const token = request.cookies.get("access_token")?.value
+  console.log('===> proxy intercept request!!!!')
   if (!token) {
     return NextResponse.redirect(new URL("/login", request.url))
   }
@@ -18,5 +19,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!login|api|_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!login|register|api|_next/static|_next/image|favicon.ico).*)"],
 }

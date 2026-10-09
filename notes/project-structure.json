@@ -1,5 +1,40 @@
 [
   {
+    "path": "apps/api/.env",
+    "type": "unknown",
+    "symbols": []
+  },
+  {
+    "path": "apps/api/alembic/env.py",
+    "type": "python",
+    "symbols": [
+      "def run_migrations_offline",
+      "def _run_migrations_online",
+      "def run_migrations_online"
+    ]
+  },
+  {
+    "path": "apps/api/alembic/versions/001_create_users_table.py",
+    "type": "python",
+    "symbols": [
+      "def upgrade",
+      "def downgrade"
+    ]
+  },
+  {
+    "path": "apps/api/alembic/versions/002_add_email_to_users.py",
+    "type": "python",
+    "symbols": [
+      "def upgrade",
+      "def downgrade"
+    ]
+  },
+  {
+    "path": "apps/api/alembic.ini",
+    "type": "ini",
+    "symbols": []
+  },
+  {
     "path": "apps/api/api/__init__.py",
     "type": "python",
     "symbols": []
@@ -10,12 +45,30 @@
     "symbols": []
   },
   {
+    "path": "apps/api/api/v1/auth.py",
+    "type": "python",
+    "symbols": [
+      "def _redis",
+      "class LoginRequest",
+      "class RegisterRequest",
+      "@post def login_jwt",
+      "@post def register_account",
+      "@post def login_google",
+      "@get def google_callback"
+    ]
+  },
+  {
     "path": "apps/api/api/v1/router.py",
     "type": "python",
     "symbols": [
       "@get def ping",
       "@get def hello"
     ]
+  },
+  {
+    "path": "apps/api/CLAUDE.md",
+    "type": "md",
+    "symbols": []
   },
   {
     "path": "apps/api/core/__init__.py",
@@ -38,6 +91,27 @@
     ]
   },
   {
+    "path": "apps/api/core/dependencies.py",
+    "type": "python",
+    "symbols": [
+      "def get_current_user"
+    ]
+  },
+  {
+    "path": "apps/api/core/exceptions.py",
+    "type": "python",
+    "symbols": [
+      "class AppError",
+      "class ConflictError",
+      "class UsernameTakenError",
+      "class EmailTakenError",
+      "def __init__",
+      "def __init__",
+      "def __init__",
+      "def __init__"
+    ]
+  },
+  {
     "path": "apps/api/Dockerfile",
     "type": "unknown",
     "symbols": []
@@ -46,6 +120,8 @@
     "path": "apps/api/main.py",
     "type": "python",
     "symbols": [
+      "@exception_handler def app_error_handler",
+      "@exception_handler def unhandled_exception_handler",
       "@get def health"
     ]
   },
@@ -53,6 +129,13 @@
     "path": "apps/api/models/__init__.py",
     "type": "python",
     "symbols": []
+  },
+  {
+    "path": "apps/api/models/user.py",
+    "type": "python",
+    "symbols": [
+      "class User"
+    ]
   },
   {
     "path": "apps/api/pyproject.toml",
@@ -63,6 +146,24 @@
     "path": "apps/api/services/__init__.py",
     "type": "python",
     "symbols": []
+  },
+  {
+    "path": "apps/api/services/auth.py",
+    "type": "python",
+    "symbols": [
+      "def jwt_login",
+      "def register",
+      "def google_login"
+    ]
+  },
+  {
+    "path": "apps/api/services/token.py",
+    "type": "python",
+    "symbols": [
+      "def create_access_token",
+      "def create_refresh_token",
+      "def decode_access_token"
+    ]
   },
   {
     "path": "apps/api/storage/CLAUDE.md",
@@ -83,6 +184,44 @@
     "path": "apps/web/AGENTS.md",
     "type": "md",
     "symbols": []
+  },
+  {
+    "path": "apps/web/app/(auth)/login/_components/GoogleLoginButton.tsx",
+    "type": "typescript",
+    "symbols": [
+      "'use client'",
+      "export GoogleLoginButton"
+    ]
+  },
+  {
+    "path": "apps/web/app/(auth)/login/_components/JwtLoginForm.tsx",
+    "type": "typescript",
+    "symbols": [
+      "'use client'",
+      "export JwtLoginForm"
+    ]
+  },
+  {
+    "path": "apps/web/app/(auth)/login/page.tsx",
+    "type": "typescript",
+    "symbols": [
+      "export LoginPage"
+    ]
+  },
+  {
+    "path": "apps/web/app/(auth)/register/_components/RegisterForm.tsx",
+    "type": "typescript",
+    "symbols": [
+      "'use client'",
+      "export RegisterForm"
+    ]
+  },
+  {
+    "path": "apps/web/app/(auth)/register/page.tsx",
+    "type": "typescript",
+    "symbols": [
+      "export Register"
+    ]
   },
   {
     "path": "apps/web/app/favicon.ico",
@@ -115,8 +254,56 @@
     "symbols": []
   },
   {
+    "path": "apps/web/components/providers/QueryProvider.tsx",
+    "type": "typescript",
+    "symbols": [
+      "'use client'",
+      "export QueryProvider"
+    ]
+  },
+  {
+    "path": "apps/web/components/ui/button.tsx",
+    "type": "typescript",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/components/ui/card.tsx",
+    "type": "typescript",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/components/ui/input.tsx",
+    "type": "typescript",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/components.json",
+    "type": "json",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/Dockerfile",
+    "type": "unknown",
+    "symbols": []
+  },
+  {
     "path": "apps/web/eslint.config.mjs",
     "type": "mjs",
+    "symbols": []
+  },
+  {
+    "path": "apps/web/lib/auth.ts",
+    "type": "typescript",
+    "symbols": [
+      "export COOKIE_ACCESS_TOKEN",
+      "export COOKIE_REFRESH_TOKEN",
+      "export postJwtLogin",
+      "export postRegister"
+    ]
+  },
+  {
+    "path": "apps/web/lib/utils.ts",
+    "type": "typescript",
     "symbols": []
   },
   {
@@ -143,6 +330,14 @@
     "path": "apps/web/postcss.config.mjs",
     "type": "mjs",
     "symbols": []
+  },
+  {
+    "path": "apps/web/proxy.ts",
+    "type": "typescript",
+    "symbols": [
+      "export proxy",
+      "export config"
+    ]
   },
   {
     "path": "apps/web/public/file.svg",

@@ -4,3 +4,5 @@ description: Takes a feature description or a file and produces a concise design
 ---
 
 Read `.claude/shared/designer-core.md` and follow its instructions exactly.
+
+Read `.claude/shared/agent-output-discipline.md` and apply it to all output you produce.

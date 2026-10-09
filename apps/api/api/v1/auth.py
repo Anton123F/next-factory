@@ -1,11 +1,12 @@
 from fastapi import APIRouter, Depends, HTTPException, Response
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from redis.asyncio import Redis
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from core.config import settings
 from core.database import get_db
-from services.auth import google_login, jwt_login
+from services.auth import google_login, jwt_login, register
 
 router = APIRouter()
 
@@ -19,6 +20,12 @@ def _redis() -> Redis:
 
 class LoginRequest(BaseModel):
     username: str
+    password: str
+
+
+class RegisterRequest(BaseModel):
+    username: str
+    email: str
     password: str
 
 
@@ -41,6 +48,29 @@ async def login_jwt(body: LoginRequest, response: Response, db: AsyncSession = D
         await redis.delete(rate_key)
     finally:
         await redis.aclose()
+
+    response.set_cookie(
+        key="refresh_token",
+        value=refresh_token,
+        httponly=True,
+        samesite="lax",
+        max_age=settings.refresh_token_expire_days * 86400,
+        path="/",
+    )
+    response.set_cookie(
+        key="access_token",
+        value=access_token,
+        httponly=False,
+        samesite="lax",
+        max_age=settings.access_token_expire_minutes * 60,
+        path="/",
+    )
+    return {"access_token": access_token, "token_type": "bearer"}
+
+
+@router.post("/register")
+async def register_account(body: RegisterRequest, response: Response, db: AsyncSession = Depends(get_db)):
+    access_token, refresh_token = await register(body.username, body.email, body.password, db)
 
     response.set_cookie(
         key="refresh_token",
