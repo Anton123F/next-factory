@@ -27,3 +27,12 @@
 - Do not use `any` in TypeScript
 - Do not use raw CSS files — Tailwind utilities only
 - Do not replace shadcn/ui components; extend them instead
+
+## File Index
+- `proxy.ts` — Next.js middleware, guards all routes, redirects unauthenticated users
+
+## Directory Index
+- `app/`        — root layout, home page, route tree (see app/CLAUDE.md)
+- `app/(auth)/` — login and registration routes (see app/(auth)/CLAUDE.md)
+- `components/` — shared UI components (see components/CLAUDE.md)
+- `lib/`        — API fetch helpers (see lib/CLAUDE.md)

@@ -47,3 +47,14 @@ These must be respected even in early phases — retrofitting is harder than bui
 - Do not call storage, queue, or DB adapters directly from route handlers — always go through a service layer
 - Do not put business logic in Celery tasks — tasks orchestrate, services contain logic
 - Do not use `docker exec` hacks to initialize state — use Alembic migrations and seed scripts
+
+## File Index
+- `main.py` — FastAPI entry point, CORS, global error handlers, mounts v1 router
+
+## Directory Index
+- `alembic/`  — migration runner and version files (see alembic/CLAUDE.md)
+- `api/v1/`   — HTTP endpoints: auth routes, v1 router (see api/v1/CLAUDE.md)
+- `core/`     — config, DB session, auth dependency, exceptions (see core/CLAUDE.md)
+- `models/`   — SQLAlchemy ORM models (see models/CLAUDE.md)
+- `services/` — business logic: auth, token issuance (see services/CLAUDE.md)
+- `storage/`  — storage adapter interface and implementations (see storage/CLAUDE.md)

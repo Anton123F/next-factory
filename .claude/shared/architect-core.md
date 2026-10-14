@@ -13,14 +13,15 @@ Read `.factory/artifacts/<timestamp>/design/requirements.md`.
 Read these files before doing anything else:
 - `notes/structure.md` — monorepo layout and boundary rules
 - `notes/stack-diagram.md` — tech stack and layer responsibilities
-- `notes/project-map.md` — index of every source file with a one-line description
 
-If `notes/project-map.md` does not exist, stop immediately and tell the user:
-> `notes/project-map.md` not found. Run `python scripts/scan_project.py` then `/build-project-map` to generate it.
+Then navigate the per-directory `CLAUDE.md` files to locate relevant files:
+1. Read `apps/api/CLAUDE.md` and `apps/web/CLAUDE.md` for the top-level directory indexes.
+2. For each area relevant to the feature, read that subdirectory's `CLAUDE.md` (e.g. `apps/api/services/CLAUDE.md`).
+3. Stop drilling once you have identified the specific files to read — do not scan directories, do not glob.
 
-Do not scan any directories. Do not glob. Use only `notes/project-map.md` to decide which files are relevant to the feature. Then read only those files.
+Do not read source files until step 2 is complete. Use only the `CLAUDE.md` indexes to decide which files are relevant, then read only those files.
 
-**New files:** If the feature requires a file whose path does not appear in `notes/project-map.md`, that file does not exist yet. You must list it under **Files to Create** — the developer will not create any file that is not explicitly listed in the plan. Never assume the developer will infer missing files; the architect owns discovery of new files.
+**New files:** If the feature requires a file in a directory with no `CLAUDE.md` entry for it, that file does not exist yet. List it under **Files to Create** — the developer will not create any file not explicitly listed in the plan. Never assume the developer will infer missing files; the architect owns discovery of new files.
 
 ### 3. Write plan.md
 Write `.factory/artifacts/<timestamp>/arch/plan.md` with exactly this structure:
@@ -44,7 +45,7 @@ Write `.factory/artifacts/<timestamp>/arch/plan.md` with exactly this structure:
 
 Rules:
 - The developer agent reads and touches **only** the files listed here — nothing more, nothing less
-- If a path is absent from `notes/project-map.md`, it must appear under **Files to Create** — never under **Files to Modify**
+- If a path has no `CLAUDE.md` entry, it must appear under **Files to Create** — never under **Files to Modify**
 - Every entry must be justified — no speculative or "might be useful" entries
 - File paths must be exact and relative to the project root
 - Do not contradict constraints in CLAUDE.md
